@@ -4,8 +4,8 @@ FROM alpine:latest
 # Update package repositories and install OpenSSH
 RUN apk update && apk add openssh
 
-# Copy SSH configuration files
-#COPY sshd_config /etc/ssh/sshd_config
+# Generate SSH host keys
+RUN ssh-keygen -A
 
 # Expose SSH port (default is 22)
 EXPOSE 2222
